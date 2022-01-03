@@ -1,4 +1,5 @@
 // FIFO used for UNCACHED MEMORY WRITE...
+// 一个写入数据的缓冲区，具体怎么用还不确定
 module data_fifo(
     input                   clk,
     input                   rst,
@@ -26,8 +27,8 @@ module data_fifo(
     wire [70:0] din;
     wire [70:0] dout;
 
-    assign din          = { size_in, dwen_in, data_in, addr_in };
-    assign { size_out, dwen_out, data_out, addr_out } = dout;
+    assign din          = { size_in, dwen_in, data_in, addr_in };   // fifo存放的数据
+    assign { size_out, dwen_out, data_out, addr_out } = dout;       // fifo中数据的解析
 
 /*
     fifo_generator_0 fifo_generator(
@@ -48,24 +49,24 @@ module data_fifo(
     reg [5:0] read_pointer;
     reg [5:0] write_pointer;
 
-    assign full = read_pointer == (write_pointer + 5'd1);
-    assign empty = read_pointer == write_pointer;
-    assign dout = _fifo[read_pointer];
+    assign full = read_pointer == (write_pointer + 5'd1);       // 是否为满
+    assign empty = read_pointer == write_pointer;               // 是否为空
+    assign dout = _fifo[read_pointer];                          // 读取的数据
 
     always_ff @(posedge clk) begin
         if(rst) begin
             read_pointer <= 6'd0;
         end
         else if(read_en)
-            read_pointer <= read_pointer + 6'd1;
+            read_pointer <= read_pointer + 6'd1;                // 读取后移动读指针
     end
 
     always_ff @(posedge clk) begin
         if(rst) begin
             write_pointer <= 6'd0;
         end
-        else if(write_en)
-            write_pointer <= write_pointer + 6'd1;
+        else if(write_en)                                       
+            write_pointer <= write_pointer + 6'd1;              // 写入后移动写指针
     end
 
     always_ff @(posedge clk) begin

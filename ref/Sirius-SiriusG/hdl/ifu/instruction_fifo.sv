@@ -15,7 +15,7 @@ module instruction_fifo(
         input                       write_en1,          //指令一写使能
         input                       write_en2,          //指令二写使能
         
-        //TODO:这里如果是写指令为什么有32位addr和data?
+        //32位的指令地址和对应指令
         input [31:0]                write_data1,        
         input [11:0]                write_inst_exp1,    //TODO: 这是什么数据？
         input [31:0]                write_address1,     

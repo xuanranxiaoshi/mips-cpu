@@ -8,9 +8,9 @@ module memory(
         input [31:0]                ex_result,
         input [31:0] 	            rt_value,
         input [ 4:0]                rt_addr,
-        input [ 1:0] 	            mem_type,
-        input [ 2:0] 	            mem_size,
-        input 		                mem_signed,
+        input [ 1:0] 	            mem_type,               // Memory operation type -- load or store
+        input [ 2:0] 	            mem_size,               // Memory operation size -- B,H,W,WL,WR
+        input 		                mem_signed,             // 有符号标志
 
         // Exceptions...
         input [ 2:0]                inst_exp,
@@ -20,14 +20,14 @@ module memory(
         input                       data_dirty,
 
         // Connect to sram.
-        output logic 	            mem_en,
+        output logic 	            mem_en,                 // 应该访存使能信号
         output logic [3:0]          mem_wen,
         output logic [31:0]         mem_addr,
         output logic [31:0]         mem_wdata,
-        input logic [31:0]          mem_rdata,
         output logic [2:0]          data_size,
+        input logic [31:0]          mem_rdata,              // 访存得到的数据
 
-        output logic [31:0]         result,
+        output logic [31:0]         result,                 // 最后的输出结果
         // Report error
         output logic                address_error,
         output logic                tlb_modified,
@@ -38,16 +38,21 @@ module memory(
         output logic                index_invalidate
 );
 
+    // TODO: 逻辑不清
     assign mem_en       = (|mem_type || data_hit_writeback) && (~address_error) && 
                       (~(|inst_exp)) && (~data_miss) && (~data_tlb_invalid) &&
                       ~((~data_dirty && |mem_wen));
+
     assign mem_addr     = address;
+    // TODO: 含义不清
     assign tlb_modified = (data_dirty && |mem_wen);
 
+    // TODO: 含义不清
     assign inst_hit_invalidate = (mem_type == `MEM_CACH) && (rt_addr == 5'b00000 || rt_addr == 5'b10000);
     assign data_hit_writeback = (mem_type == `MEM_CACH) && (rt_addr == 5'b00001 || rt_addr == 5'b10101);
     assign index_invalidate    = (mem_type == `MEM_CACH) && (rt_addr == 5'b00000 || rt_addr == 5'b00001);
 
+    // 根据数据size类型更新相应的data_size输出
     always_comb begin : detect_write_size
         if(mem_size == `SZ_BYTE)
             data_size = 3'd0;
@@ -57,7 +62,8 @@ module memory(
             data_size = 3'd2;
     end
 
-    always_comb begin : detect_alignment_error
+    // 检查地址是否按要求对齐
+    always_comb begin : detect_alignment_error              
         if(mem_type != `MEM_NOOP) begin
             unique case(mem_size)
             `SZ_HALF:
@@ -73,23 +79,23 @@ module memory(
     end
 
     // Read or write
-    always_comb begin : memory_control
-        result = ex_result;
+    always_comb begin : memory_control                      
+        result = ex_result;                                 // 执行阶段运算结果
         mem_wen = 4'b0;
-        mem_wdata = rt_value;
+        mem_wdata = rt_value;                               // 写入内存数据
         if(address_error) begin
         // We do noting when align error
         end
         else begin
-            if(mem_type == `MEM_STOR) begin
+            if(mem_type == `MEM_STOR) begin                 // store型指令: 根据指令类型生成mem_wdata
                 unique case(mem_size)
-                `SZ_FULL:
+                `SZ_FULL:                                                           //写全字
                     mem_wen = 4'b1111;
-                `SZ_HALF: begin
+                `SZ_HALF: begin                                                     //写半字
                     mem_wdata = {2{rt_value[15:0]}};
                     mem_wen = {address[1],address[1],~address[1],~address[1]};
                 end
-                `SZ_BYTE: begin
+                `SZ_BYTE: begin                                                     //写字节
                     mem_wdata = {4{rt_value[7:0]}};
                     unique case(address[1:0])
                     2'd0:
@@ -104,7 +110,7 @@ module memory(
                         mem_wen = 4'b0000;
                     endcase
                 end
-                `SZ_LEFT: begin
+                `SZ_LEFT: begin                                                     //具体见swl指令说明
                     unique case(address[1:0])
                     2'd0: begin
                         mem_wen = 4'b0001;
@@ -126,7 +132,7 @@ module memory(
                         mem_wen = 4'b0000;
                     endcase
                 end
-                `SZ_RIGH: begin
+                `SZ_RIGH: begin                                                     //具体见swr指令说明
                     unique case(address[1:0])
                     2'd0: begin
                         mem_wen = 4'b1111;
@@ -152,13 +158,13 @@ module memory(
                     mem_wen = 4'b1111;
                 endcase
             end
-            else if(mem_type == `MEM_LOAD) begin
+            else if(mem_type == `MEM_LOAD) begin        // load型指令: 根据具体指令类型生成最后的result
                 mem_wen = 4'b0;
                 unique case(mem_size)
                 `SZ_HALF: begin
                     if(address[1])
-                    result = mem_signed? { 16'b0 ,mem_rdata[31:16]} :
-                                {{16{mem_rdata[31]}}, mem_rdata[31:16]};
+                    result = mem_signed? { 16'b0 ,mem_rdata[31:16]} :           // TODO: signed=1 为无符号？
+                                {{16{mem_rdata[31]}}, mem_rdata[31:16]};        
                     else
                     result = mem_signed? { 16'b0 ,mem_rdata[15:0]} :
                                 {{16{mem_rdata[15]}}, mem_rdata[15:0]};
