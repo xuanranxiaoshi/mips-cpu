@@ -9,9 +9,11 @@ module sirius(
         // Interupt channel
         input [4:0]             interrupt,
         // Inst channel
+            // 向指令内存单元的输出
         output logic            inst_en,
         output logic [31:0]     inst_addr,
-        output logic            inst_uncached,
+        output logic            inst_uncached,      
+            // 指令内存单元的输入
         input                   inst_ok,
         input                   inst_ok_1,
         input                   inst_ok_2,
@@ -19,11 +21,13 @@ module sirius(
         input [31:0]            inst_data_2,
 
         // Data channel
+            // 数据内存单元的输出
         output logic            data_en,
         output logic [3:0]      data_wen,
         output logic [31:0]     data_addr,
         output logic            data_uncached,
         output logic [31:0]     data_wdata,
+            // 数据内存单元的输入
         input                   data_ok,
         input [31:0]            data_data,
         output logic [2:0]      data_size,
@@ -41,11 +45,11 @@ module sirius(
     wire                fifo_full;
 
     // IF SIGNALS
-    wire [31:0]         if_pc_address;
-    wire [31:0]         if_pc_slave_address = if_pc_address + 32'd4;
-    wire                if_inst_miss;
-    wire                if_inst_illegal;
-    wire                if_inst_tlb_invalid;
+    wire [31:0]         if_pc_address;                                      // 指令地址
+    wire [31:0]         if_pc_slave_address = if_pc_address + 32'd4;        // slave的指令为下一条
+    wire                if_inst_miss;                                       // 指令缺失
+    wire                if_inst_illegal;                                    // 指令不合法
+    wire                if_inst_tlb_invalid;     
 
     // ID SIGNALS
     // ID -- master
@@ -69,7 +73,7 @@ module sirius(
     wire [4:0]          id_wb_reg_dest;
     wire                id_wb_reg_en;
     wire                id_unsigned_flag;
-    wire                id_priv_inst;
+    wire                id_priv_inst;                       // id阶段译码的指令是否是特权指令
 
     // ID -- slave
     wire [5:0]          id_opcode_slave, id_funct_slave;
@@ -94,7 +98,7 @@ module sirius(
     wire                id_unsigned_flag_slave;
     wire                id_priv_inst_slave;
 
-    wire                id_enable_slave;
+    wire                id_enable_slave;                    // slave使能信号
     // EX SIGNALS
     wire                ex_branch_taken;
     wire [31:0]         ex_branch_address;
@@ -169,8 +173,8 @@ module sirius(
 
     // IF-ID SIGNALS
     wire [31:0]          if_id_pc_address;
-    wire [31:0]          if_id_instruction;
-    wire                 if_id_in_delay_slot;
+    wire [31:0]          if_id_instruction;            // 从指令缓冲区取出的地址
+    wire                 if_id_in_delay_slot;          // 是否为延迟槽指令
     wire [31:0]          if_id_pc_address_slave;
     wire [31:0]          if_id_instruction_slave;
     wire                 if_id_in_delay_slot_slave;
@@ -279,9 +283,10 @@ module sirius(
     reg [ 4:0]      mem_wb_reg_dest_slave;
     reg             mem_wb_reg_en_slave;
     
-    assign              inst_en = ~fifo_full;
+    assign              inst_en = ~fifo_full;                      // 指令内存单元使能
     assign              data_uncached = ex_mem_data_uncached;
-
+    
+    // 时钟计数器
     logic [63:0] clk_counter;
     always_ff @(posedge clk) begin
         if(rst)
@@ -291,6 +296,7 @@ module sirius(
     end
 
     // Global components
+    // 流水线控制逻辑
     pipe_ctrl pipe_ctrl0(
         .clk                    (clk),
         .rst                    (rst),
@@ -298,7 +304,7 @@ module sirius(
         .ex_stall               (ex_stall_o),
         .mem_stall              (data_en & ~data_ok),
         .id_ex_alu_op           (id_ex_alu_op),
-        .id_ex_mem_type         (id_ex_mem_type),
+        .id_ex_mem_type         (id_ex_mem_type),           // 输入
         .id_ex_mem_wb_reg_dest  (id_ex_wb_reg_dest),
         .ex_mem_cp0_wen         (ex_mem_cp0_wen),
         .ex_mem_mem_type        (ex_mem_type),
@@ -315,6 +321,7 @@ module sirius(
         .en_mem_wb              (mem_wb_en)
     );
 
+    // 寄存器堆
     register reg_file(
         .clk                    (clk),
         .rst                    (rst),
@@ -333,7 +340,7 @@ module sirius(
         .waddr2_a               (wb_reg_write_dest_slave),
         .wdata2_a               (wb_reg_write_data_slave)
     );
-
+    // pc_0
     pc pc_0(
         .clk                    (clk),
         .rst                    (rst),
@@ -348,6 +355,7 @@ module sirius(
         .pc_address             (if_pc_address)
     );
 
+    // 指令缓冲区: 从这里直取出指令传
     instruction_fifo instruction_fifo_0(
         .clk                    (clk),
         .debug_rst              (rst),
@@ -358,8 +366,8 @@ module sirius(
         .read_en2               (id_enable_slave),
         .write_en1              (inst_ok & inst_ok_1),
         .write_en2              (inst_ok & inst_ok_2),
-        .write_data1            (inst_data_1),
-        .write_address1         (if_pc_address),
+        .write_data1            (inst_data_1),              // 将从内存中读取的指令写入缓冲区
+        .write_address1         (if_pc_address),            // 内存读取到的指令的地址
         .write_data2            (inst_data_2),
         .write_address2         (if_pc_address + 32'd4),
         .write_inst_exp1        ({mem_exl_set_mem,mem_cp0_curr_ASID,if_inst_miss,if_inst_illegal,if_inst_tlb_invalid}),
@@ -405,7 +413,7 @@ module sirius(
         .alu_imm_src            (id_alu_imm_src),
         .mem_type               (id_mem_type),
         .mem_size               (id_mem_size),
-        .wb_reg_dest            (id_wb_reg_dest),
+        .wb_reg_dest            (id_wb_reg_dest),               // writeback 写入的寄存器地址
         .wb_reg_en              (id_wb_reg_en),
         .unsigned_flag          (id_unsigned_flag),
         .priv_inst              (id_priv_inst)
@@ -558,7 +566,9 @@ module sirius(
 
     reg [2:0] id_ex_branch_type;
 
+    // master ID阶段流向EX阶段的逻辑
     always_ff @(posedge clk) begin
+        // id流向ex的情况
         if(rst || (!id_ex_en && ex_mem_en) || flush || (id_ex_en && ex_branch_taken && id_ex_slave_en)) begin
             id_ex_pc_address        <= 32'd0;
             id_ex_instruction       <= 32'd0;
@@ -586,6 +596,7 @@ module sirius(
             id_ex_inst_exp          <= 12'd0;
             id_ex_priv_inst         <= 1'd0;
         end
+        // id流向ex
         else if(id_ex_en) begin 
             id_ex_pc_address        <= if_id_pc_address;
             id_ex_instruction       <= if_id_instruction;
@@ -615,9 +626,11 @@ module sirius(
         end
     end
 
+    // slave id流向ex阶段的逻辑
     reg id_ex_undefined_inst_slave;
     reg ex_mem_undefined_inst_slave;
     always_ff @(posedge clk) begin
+        // 不流向的情况 : 
         if(rst || (!id_ex_en && ex_mem_en) || flush || (id_ex_en && !id_enable_slave) || (id_ex_en && ex_branch_taken)) begin
             id_ex_pc_address_slave      <= 32'd0;
             id_ex_wb_reg_dest_slave     <= 5'd0;
@@ -632,6 +645,7 @@ module sirius(
             id_ex_rs_value_slave        <= 32'd0;
             id_ex_rt_value_slave        <= 32'd0;
         end
+        // 
         else if(id_ex_en) begin
             id_ex_pc_address_slave      <= if_id_pc_address_slave;
             id_ex_wb_reg_dest_slave     <= id_wb_reg_dest_slave;

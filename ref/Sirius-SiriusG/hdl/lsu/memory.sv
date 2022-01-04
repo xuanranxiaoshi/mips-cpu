@@ -1,5 +1,9 @@
 `timescale 1ns / 1ps
 `include "common.vh"
+
+/****************************** 访存相关控制单元 *******************************
+    作用: 根据指令类型选择生成写入和读取的内存数据
+*****************************************************************************/
 module memory(
         input                       clk,
         input                       rst,
@@ -33,6 +37,7 @@ module memory(
         output logic                tlb_modified,
 
         // Cache operation
+        // 传递给cache的信号
         output logic                inst_hit_invalidate,
         output logic                data_hit_writeback,
         output logic                index_invalidate

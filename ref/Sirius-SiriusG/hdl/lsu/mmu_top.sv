@@ -1,29 +1,32 @@
 `timescale 1ns / 1ps
+/***************************功能说明*******************************
+将指令缓存单元和数据缓存单元与接口信号整合连接起来，封装AXI接口
+*****************************************************************/
 
 module mmu_top(
         input                   clk,
         input                   rst,
         // Inst channel
-        input                   inst_en,
-        input [31:0]            inst_addr,
-        input                   inst_uncached,
-        output logic            inst_ok,
-        output logic            inst_ok_1,
-        output logic            inst_ok_2,
-        output logic [31:0]     inst_data_1,
-        output logic [31:0]     inst_data_2,
+        input                   inst_en,                    // 指令使能
+        input [31:0]            inst_addr,                  // 指令地址
+        input                   inst_uncached,              // 指令没有被缓存？
+        output logic            inst_ok,                    // 指令有效
+        output logic            inst_ok_1,                  // 指令输出一有效
+        output logic            inst_ok_2,                  // 指令输出二有效
+        output logic [31:0]     inst_data_1,                // 指令数据一
+        output logic [31:0]     inst_data_2,                // 指令数据二
         // Data channel
-        input                   data_en,
-        input [3:0]             data_wen,
-        input [31:0]            data_addr,
-        input                   data_uncached,
-        input [31:0]            data_wdata,
-        input [2:0]             data_size,
-        output logic            data_ok,
-        output logic [31:0]     data_data,
+        input                   data_en,                    // 数据使能
+        input [3:0]             data_wen,                   // 数据写入使能?
+        input [31:0]            data_addr,                  // 数据地址
+        input                   data_uncached,              // 数据没有被缓存？
+        input [31:0]            data_wdata,                 // 写入数据
+        input [2:0]             data_size,                  // 写入数据size
+        output logic            data_ok,                    // 输出数据有效位
+        output logic [31:0]     data_data,                  // 输出数据
 
         // Cache control
-        input                   inst_hit_invalidate,
+        input                   inst_hit_invalidate,        //TODO: 变量意义
         input                   data_hit_writeback,
         input                   index_invalidate,
 
@@ -88,10 +91,10 @@ module mmu_top(
     assign  bready  = 1'b1;
 
     // Addr tran
-    logic [31:0]    iaddr_psy, daddr_psy;
-    logic           iaddr_type, daddr_type;
+    logic [31:0]    iaddr_psy, daddr_psy;       // 指令物理地址、数据物理地址
+    logic           iaddr_type, daddr_type;     // 指令地址类型、数据地址类型
 
-    always_comb begin
+    always_comb begin           
         iaddr_psy   = inst_addr;
         iaddr_type  = inst_uncached;
         daddr_psy   = data_addr;
@@ -187,6 +190,7 @@ module mmu_top(
         .index_invalidate(index_invalidate)
     );
 
+    // 将数据存储单元和指令存储单元的信号与AXI信号相连接
     // Read channel 
     always_comb begin
         if((iread_en && inst_running && dread_en && data_running) || (data_running && ~dread_en && inst_running) || (data_running && ~inst_running)) begin // Data first

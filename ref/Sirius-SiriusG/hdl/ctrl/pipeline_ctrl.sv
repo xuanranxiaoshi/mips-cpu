@@ -6,24 +6,24 @@
 module pipe_ctrl(
         input               clk,
         input               rst,
-        input               icache_stall,
-        input               ex_stall,
-        input               mem_stall,
+        input               icache_stall,                   // 指令cache 的stall信号
+        input               ex_stall,                       // 执行阶段的stall信号
+        input               mem_stall,                      // 访问存阶段的stall信号
         
         input [5:0]         id_ex_alu_op,
-        input [1:0]         id_ex_mem_type,
+        input [1:0]         id_ex_mem_type,                 // id阶段到ex阶段指令访存类型
         input [4:0]         id_ex_mem_wb_reg_dest,
         input               ex_mem_cp0_wen,
-        input [1:0]         ex_mem_mem_type,
+        input [1:0]         ex_mem_mem_type,    
         input [4:0]         ex_mem_mem_wb_reg_dest,
         input [4:0]         id_rs,
         input [4:0]         id_rt,
-        input               id_branch_taken,
+        input               id_branch_taken,                // id阶段的指令是否跳转
         input               fifo_full,
         input               exp_detect,
 
         output logic        en_if,
-        output logic        en_if_id,
+        output logic        en_if_id,                       // if到id阶段的使能信号
         output logic        en_id_ex,
         output logic        en_ex_mem,
         output logic        en_mem_wb

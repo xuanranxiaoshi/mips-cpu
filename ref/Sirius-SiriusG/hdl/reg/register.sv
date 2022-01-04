@@ -3,6 +3,10 @@
 // Note that when both pipelines try to
 // write to the same port, the slave pipeline
 // has a higher priority.
+
+/*********************** 寄存器堆 **************************
+双端口的寄存器堆
+*********************************************************8*/
 module register(
         input                       clk,
         input                       rst,
@@ -28,12 +32,12 @@ module register(
 		input [31:0]				wdata2_a
 );
 
-    reg [31:0] _register[0:31];
+    reg [31:0] _register[0:31];							// 寄存器堆存储单元
 
 	always_comb begin : read_data1_a
-		if(raddr1_a == 5'b00000)
+		if(raddr1_a == 5'b00000)						// r0寄存器
 			rdata1_a = 32'h0000_0000;
-        else if(wen2_a && waddr2_a == raddr1_a)
+        else if(wen2_a && waddr2_a == raddr1_a)			// 数据前推
             rdata1_a = wdata2_a;
 		else if(wen1_a && waddr1_a == raddr1_a)
 			rdata1_a = wdata1_a;
@@ -74,14 +78,16 @@ module register(
 			rdata2_b = _register[raddr2_b];
 	end
 
+
+	// 写数据逻辑
 	always_ff @(posedge clk) begin : write_data
 		if(rst) begin
 			for(int i = 0; i < 31; i++)
 				_register[i] <= 32'h0000_0000;
 		end
 		else begin
-            if(wen1_a && wen2_a && waddr1_a == waddr2_a)
-                _register[waddr2_a] <= wdata2_a;
+            if(wen1_a && wen2_a && waddr1_a == waddr2_a)	//两个同时写入同一个地址
+                _register[waddr2_a] <= wdata2_a;			//写入2的内容
             else begin
                 if(wen1_a)
                     _register[waddr1_a] <= wdata1_a;

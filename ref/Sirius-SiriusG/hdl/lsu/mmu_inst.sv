@@ -6,9 +6,14 @@
 // | Tag[18:0] | data... 64Bytes | * 128
 // Address format:
 // addr[31:13] as Tag
-// addr[12:6] as Index
-// addr[5:2] as Offset
-// addr[1:0] is unused in i$
+// addr[12:6] as Index              7位index,对应128个cacheline
+// addr[5:2] as Offset              4位offset,单位为字-->一个cacheline 为64字节
+// addr[1:0] is unused in i$        低2位忽略的话应该是以字为单位了
+
+/*******************************功能说明*********************************
+指令的cache部分。
+根据传入指令地址, 返回相应的指令数据; 如果没有命中则返回mmu_top进行访存
+************************************************************************/
 
 // iaddr_psy should not be changed when pipeline is stalling...
 module mmu_inst(
@@ -16,29 +21,31 @@ module mmu_inst(
         input                       rst,
 
         // From/to sirius
-        input                       ien,
-        input [31:0]                iaddr_psy,
-        input                       iaddr_type, // 0 as cached, 1 as uncacahed
+        input                       ien,                    // 使能位
+        input [31:0]                iaddr_psy,              // 传入的指令的物理地址
+        input                       iaddr_type,             // 0 as cached, 1 as uncacahed
         
         // Cache control
-        input                       inst_hit_invalidate,
-        input                       index_invalidate,
+        // 来自memory.sv
+        input                       inst_hit_invalidate,    // TODO: 意义待确定
+        input                       index_invalidate,       // 
 
-        output logic                inst_ok,
+        output logic                inst_ok,                // 指令有效位
         output logic                inst_ok_1,
         output logic                inst_ok_2,
-        output logic [31:0]         inst_data_1,
-        output logic [31:0]         inst_data_2,
+        output logic [31:0]         inst_data_1,            // 指令数据
+        output logic [31:0]         inst_data_2,            
         
         // From/to mmu_top
-        output logic                mmu_running,
-        output logic [31:0]         iaddr_req,
-        output logic                read_en,
-        output logic                read_type, // o as cache refill, 1 as uncached
-        input                       iaddr_req_ok,
-        input [31:0]                idata_rdata,
-        input                       idata_rvalid,
-        input                       idata_rlast
+        output logic                mmu_running,            // 是否在running 
+        output logic [31:0]         iaddr_req,              // 请求的地址
+        output logic                read_en,                // 读使能
+        output logic                read_type,              // o as cache refill, 1 as uncached
+
+        input                       iaddr_req_ok,           // 地址是否正确收到
+        input [31:0]                idata_rdata,            // 读取到的数据
+        input                       idata_rvalid,           // TODO: 有效位
+        input                       idata_rlast             // 
 );
 
     enum logic [2:0] {
@@ -51,23 +58,27 @@ module mmu_inst(
         CACHECTRL_WAIT  = 3'b111
     } cstate, nstate;
 
-    reg  [127:0]    icache_valid;
+    reg  [127:0]    icache_valid;                           // 指令cache的有效位
 
-    wire [ 18:0]    inst_tag    = iaddr_psy[31:13];
+    wire [ 18:0]    inst_tag    = iaddr_psy[31:13];         // 提取指令读值的相应位置
     wire [  6:0]    inst_index  = iaddr_psy[12:6];
-    wire [  3:0]    inst_offset = iaddr_psy[5:2];
-    wire [  6:0]    ram_dpra    = inst_index;
-    wire [  6:0]    ram_a       = inst_index;
-    wire [530:0]    ram_d;
-    logic           ram_we;
+    wire [  3:0]    inst_offset = iaddr_psy[5:2];           // 字偏移
+    // TODO: 意义待确定
+    wire [  6:0]    ram_dpra    = inst_index;               // 读取ram的地址，以指令地址低7为索引
+    wire [  6:0]    ram_a       = inst_index;               // 写入ram的地址，以指令地址低7为索引
+    wire [530:0]    ram_d;                                  // 写入ram的数据，19+16*32
+    logic           ram_we;                                 // ram的写使能信号
     logic           clear_valid;
 
-    wire [530:0]    icache_return; // Connect to output channel of ram.
-    wire [ 31:0]    icache_return_data[0:15];
+    wire [530:0]    icache_return;                          // Connect to output channel of ram.
+                                                            // 读取ram返回数据
+                                                            
+    wire [ 31:0]    icache_return_data[0:15];               // 返回数据存储区数据存储区
     
-    reg [ 31:0]     receive_buffer[0:15];
+    reg [ 31:0]     receive_buffer[0:15];                   // 接收缓冲区
 
-    wire [18:0]icache_return_tag  = icache_return[18:0];
+    // 解析读取的数据
+    wire [18:0]icache_return_tag  = icache_return[18:0];    // 前19位为tag       
     assign icache_return_data[0]  = icache_return[50:19];
     assign icache_return_data[1]  = icache_return[82:51];
     assign icache_return_data[2]  = icache_return[114:83];
@@ -85,6 +96,7 @@ module mmu_inst(
     assign icache_return_data[14] = icache_return[498:467];
     assign icache_return_data[15] = icache_return[530:499];
 
+    // 将接收区的数据拼接成要写入ram的数据格式
     assign ram_d[18:0]      = inst_tag;
     assign ram_d[50:19]     = receive_buffer[0];
     assign ram_d[82:51]     = receive_buffer[1];
@@ -105,13 +117,14 @@ module mmu_inst(
 
     dist_mem_gen_icache icache_ram(
         .clk            (clk),
-        .dpra           (ram_dpra),
-        .a              (ram_a),
-        .d              (ram_d),
-        .we             (ram_we),
-        .dpo            (icache_return)
-    );
+        .dpra           (ram_dpra),                     // 读取地址
+        .a              (ram_a),                        // 写入地址
+        .d              (ram_d),                        // 写入数据
+        .we             (ram_we),                       // 写使能
+        .dpo            (icache_return)                 // 读出数据
+    );  
 
+    // 状态转移
     always_ff @(posedge clk) begin : update_status
         if(rst)
             cstate <= IDLE;
@@ -119,28 +132,32 @@ module mmu_inst(
             cstate <= nstate;
     end
 
+    // 更新cacheline 的有效位
     always_ff @(posedge clk) begin : update_valid_info
         if(rst) begin
             icache_valid <= 128'd0;
         end
-        else if(cstate == CACHED_REFILL) begin
-            icache_valid[inst_index] <= 1'b1;
+        else if(cstate == CACHED_REFILL) begin          // TODO: 更新逻辑待确定
+            icache_valid[inst_index] <= 1'b1;           
         end
-        else if(clear_valid)
+        else if(clear_valid)                            // 清楚有效位
             icache_valid[inst_index] <= 1'b0;
     end
 
-    reg [3:0] receive_counter;
+    reg [3:0] receive_counter;                          // 接收数据计数器
 
+    // 计数器更新逻辑
     always_ff @(posedge clk) begin : update_receive_counter
         if(rst || cstate != CACHED_WAIT) begin
             receive_counter <= 4'd0;
         end
-        else if(cstate == CACHED_WAIT && idata_rvalid) begin// receive new data
+        else if(cstate == CACHED_WAIT && idata_rvalid) begin    // receive new data
+                                                                // TODO: 更新逻辑待确定
             receive_counter <= receive_counter + 4'd1;
         end
     end
 
+    // 接受数据写入缓冲区
     always_ff @(posedge clk) begin : write_data_to_buffer
         if(rst) begin // Clear buffer
             for(int i = 0; i < 16; i++)
@@ -150,6 +167,8 @@ module mmu_inst(
             receive_buffer[receive_counter] <= idata_rdata;
         end
     end
+
+    // 计算性能
     // For performance tunning...
     reg [63:0]  cache_hit_counter;
     reg [63:0]  cache_miss_counter;
@@ -170,8 +189,10 @@ module mmu_inst(
         end
     end
 
-    wire hit_it = ((inst_tag == icache_return_tag || index_invalidate) && 
+    wire hit_it = ((inst_tag == icache_return_tag || index_invalidate) &&   // TODO: 命中逻辑有一个问题
                     icache_valid[inst_index]);
+
+
 
     // WARNING -- COMPLEX COMB LOGIC 
     // "We will still hate the tools."
@@ -222,7 +243,7 @@ module mmu_inst(
                 cache_hit   = 1'd1;
                 inst_ok     = 1'd1;
                 inst_ok_1   = 1'd1;
-                inst_ok_2   = ~(&inst_offset);
+                inst_ok_2   = ~(&inst_offset);                  // 如果为全1则第二条指令不能读取，因为第一条已经是最后一条了
                 inst_data_1 = icache_return_data[inst_offset];
                 inst_data_2 = &inst_offset? 32'd0 : icache_return_data[inst_offset + 4'd1];
             end

@@ -5,7 +5,7 @@ module mycpu_top(
 		 input 	       aclk,
 		 input 	       aresetn,
 
-		 //axi
+		 //AXI接口相关的输入输出定义
 		 //ar
 		 output [3 :0] arid ,
 		 output [31:0] araddr ,
@@ -55,6 +55,8 @@ module mycpu_top(
    wire inst_uncached, data_uncached;
    wire inst_hit_invalidate, data_hit_writeback, index_invalidate;
    wire [2:0] data_size;
+
+   // 内存顶层单元
    mmu_top mmu_0(
 			.clk                (aclk),
 			.rst                (~aresetn),

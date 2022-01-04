@@ -20,6 +20,7 @@ module mmu_data(
         output logic [31:0]         data_data,
 
         // Cache control
+        // 来自memory.sv
         input                       data_hit_writeback,
         input                       index_invalidate,
 
