@@ -70,6 +70,7 @@ module alu_beta(
         endcase
     end
 
+    // 溢出检测
     always_comb begin : set_overflow
         unique case (alu_op)
             `ALU_ADD:

@@ -26,8 +26,7 @@ module instruction_fifo(
         input [31:0]                write_address2,
 
         // Read outputs
-        // 会输出两组地址值和数据值
-        output logic [31:0]         data_out1,
+        output logic [31:0]         data_out1,          //数据输出
         output logic [31:0]         data_out2,
         output logic [31:0]         address_out1,
         output logic [31:0]         address_out2,

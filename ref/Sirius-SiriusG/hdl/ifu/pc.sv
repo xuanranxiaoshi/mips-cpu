@@ -1,5 +1,7 @@
 `timescale 1ns/1ps
-
+/***************************** 功能说明 *******************************
+根据指令的提取信息更新pc值
+**********************************************************************/
 module pc(
         input                   clk,
         input                   rst,
@@ -10,8 +12,8 @@ module pc(
 
         input                   branch_taken,           //是否发生跳转
         input [31:0]            branch_address,         //分支跳转地址
-        input                   exception_taken,        
-        input [31:0]            exception_address,
+        input                   exception_taken,        //是否发生异常跳转
+        input [31:0]            exception_address,      //异常指令地址
 
         output logic [31:0]     pc_address              //输出为指令地址
 );

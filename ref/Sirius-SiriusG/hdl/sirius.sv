@@ -1,5 +1,7 @@
 `timescale 1ns / 1ps
-
+/**
+slave 在执行阶段的信号问题
+**/
 // The pipeline
 // Todo: isolate hilo register
 module sirius(
@@ -9,11 +11,11 @@ module sirius(
         // Interupt channel
         input [4:0]             interrupt,
         // Inst channel
-            // 向指令内存单元的输出
+            // 向指令内存单元的输出     -->     指令地址
         output logic            inst_en,
         output logic [31:0]     inst_addr,
         output logic            inst_uncached,      
-            // 指令内存单元的输入
+            // 指令内存单元的输入       -->     提取出的指令
         input                   inst_ok,
         input                   inst_ok_1,
         input                   inst_ok_2,
@@ -21,13 +23,13 @@ module sirius(
         input [31:0]            inst_data_2,
 
         // Data channel
-            // 数据内存单元的输出
+            // 数据内存单元的输出       -->     写入数据信息
         output logic            data_en,
         output logic [3:0]      data_wen,
         output logic [31:0]     data_addr,
         output logic            data_uncached,
         output logic [31:0]     data_wdata,
-            // 数据内存单元的输入
+            // 数据内存单元的输入       -->     读取到的数据
         input                   data_ok,
         input [31:0]            data_data,
         output logic [2:0]      data_size,
@@ -61,8 +63,8 @@ module sirius(
     wire                id_is_branch_instr;
     wire                id_is_branch_link;
     wire                id_is_hilo_accessed;
-    wire [31:0]         reg_rs_data, reg_rt_data;
-    wire [31:0]         rs_value, rt_value;
+    wire [31:0]         reg_rs_data, reg_rt_data;           // 寄存器读出的数据
+    wire [31:0]         rs_value, rt_value;                 // 前推选择的数据
 
     wire                id_undefined_inst;
     wire [5:0]	        id_alu_op;
@@ -100,7 +102,7 @@ module sirius(
 
     wire                id_enable_slave;                    // slave使能信号
     // EX SIGNALS
-    wire                ex_branch_taken;
+    wire                ex_branch_taken;                    // 针对master而言，因为slave不发射复杂指令
     wire [31:0]         ex_branch_address;
     wire [7:0]          ex_cop0_addr;
     wire                ex_cop0_wen;
@@ -122,7 +124,7 @@ module sirius(
     wire                ex_data_illegal;
     wire                ex_data_tlb_invalid;
     wire                ex_data_dirty;
-
+                                                            // slave EX阶段涉及的信号
     wire                ex_exp_overflow_slave;
     wire [31:0]         ex_result_slave;
     wire                ex_reg_en_slave;
@@ -283,7 +285,7 @@ module sirius(
     reg [ 4:0]      mem_wb_reg_dest_slave;
     reg             mem_wb_reg_en_slave;
     
-    assign              inst_en = ~fifo_full;                      // 指令内存单元使能
+    assign              inst_en = ~fifo_full;                       // fifo不满则可以从内存读取指令
     assign              data_uncached = ex_mem_data_uncached;
     
     // 时钟计数器
@@ -296,7 +298,7 @@ module sirius(
     end
 
     // Global components
-    // 流水线控制逻辑
+    // 全局流水线控制逻辑
     pipe_ctrl pipe_ctrl0(
         .clk                    (clk),
         .rst                    (rst),
@@ -340,7 +342,7 @@ module sirius(
         .waddr2_a               (wb_reg_write_dest_slave),
         .wdata2_a               (wb_reg_write_data_slave)
     );
-    // pc_0
+    // pc_0 指令地址控制单元 -->  返回指令地址
     pc pc_0(
         .clk                    (clk),
         .rst                    (rst),
@@ -352,10 +354,10 @@ module sirius(
         .branch_address         (ex_branch_address),
         .exception_taken        (mem_exception_taken),
         .exception_address      (mem_exception_address),
-        .pc_address             (if_pc_address)
+        .pc_address             (if_pc_address)             // 得到pc值
     );
 
-    // 指令缓冲区: 从这里直取出指令传
+    // 指令缓冲区   ---->   根据输入要求提取相应指令并维护fifo队列，输出状态信息
     instruction_fifo instruction_fifo_0(
         .clk                    (clk),
         .debug_rst              (rst),
@@ -382,7 +384,7 @@ module sirius(
         .almost_empty           (if_id_fifo_almost_empty),
         .full                   (fifo_full)
     );
-
+    // 指令译码单元 ----> 提取指令相应字段
     decoder_alpha decoder_master(
         .instruction            (if_id_instruction),
         .opcode                 (id_opcode),
@@ -398,7 +400,7 @@ module sirius(
         .is_branch_link         (id_is_branch_link),
         .is_hilo_accessed       (id_is_hilo_accessed)
     );
-
+    // 指令控制译码单元 ---->   根据指令字段信息产生更多的控制信息
     decoder_ctrl conrtol_master(
         .instruction            (if_id_instruction),
         .opcode                 (id_opcode),
@@ -454,7 +456,7 @@ module sirius(
         .unsigned_flag          (id_unsigned_flag_slave),
         .priv_inst              (id_priv_inst_slave)
     );
-
+    // 数据前推逻辑控制单元
     forwarding_unit forwarding_rs(
         .slave_ex_reg_en    (id_ex_wb_reg_en_slave & ex_reg_en_slave),
         .slave_ex_addr      (id_ex_wb_reg_dest_slave),
@@ -527,6 +529,7 @@ module sirius(
         .result_data        (rt_value_slave)
     );
 
+    // 双发射检测单元   ---->   检测slave是否能启用
     dual_engine dual_engine_0(
         .id_priv_inst_master        (id_priv_inst),
         .id_wb_reg_dest_master      (id_wb_reg_dest),
@@ -544,10 +547,11 @@ module sirius(
         .fifo_empty                 (if_id_fifo_empty),
         .fifo_almost_empty          (if_id_fifo_almost_empty),
         .enable_master              (if_id_en),
-        .enable_slave               (id_enable_slave),
+        .enable_slave               (id_enable_slave),                  // 唯一输出
         .id_tlb_error               (|if_id_inst_exp_slave[2:0])
     );
 
+    // slave禁用周期计数器
     logic [63:0] id_enable_slave_counter;
     always_ff @(posedge clk) begin
         if(rst)
@@ -556,6 +560,7 @@ module sirius(
             id_enable_slave_counter <= id_enable_slave_counter + 64'd1;
     end
 
+    //
     logic [63:0] branch_nop_counter;
     always_ff @(posedge clk) begin
         if(rst)
@@ -662,6 +667,7 @@ module sirius(
         end
     end
 
+    // 选择alu的输入数据
     logic [31:0] ex_alu_src_a, ex_alu_src_b;
     // Get alu sources
     always_comb begin : get_alu_src_a
@@ -709,9 +715,10 @@ module sirius(
         endcase
     end
 
+    // 分支检测单元, 是在执行阶段判断分支
     branch branch_unit(
         .en                 (id_ex_en),
-        .pc_address         (id_ex_pc_address),
+        .pc_address         (id_ex_pc_address),         // 这里是根据master的相关的信息进行的识别
         .instruction        (id_ex_instruction),
         .is_branch_instr    (id_ex_is_branch),
         .branch_type        (id_ex_branch_type),

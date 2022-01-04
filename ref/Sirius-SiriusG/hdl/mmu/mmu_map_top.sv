@@ -8,7 +8,7 @@ module mmu_map_top(
 
     input [31:0]                iaddr,
     input                       inst_en,
-    output logic [31:0]         iaddr_psy,
+    output logic [31:0]         iaddr_psy,                      // 输出指令对应的物理地址
     output logic                inst_uncached,
     output logic                inst_miss,
     output logic                inst_illegal,

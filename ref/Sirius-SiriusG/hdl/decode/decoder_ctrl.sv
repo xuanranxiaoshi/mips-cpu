@@ -252,7 +252,7 @@ module decoder_ctrl(
             {6'b100110, 6'bxxxxxx}: // LWR
                 {alu_op, alu_src, alu_imm_src, mem_type, mem_size, wb_reg_dest, wb_reg_en, unsigned_flag} = 
                     {`ALU_ADDU, `SRC_IMM, `SIGN_EXTENDED, `MEM_LOAD, `SZ_RIGH, rt, 1'b1, `ZERO_EXTENDED};
-            {6'b101111, 6'bxxxxxx}: begin // CACHE
+            {6'b101111, 6'bxxxxxx}: begin // CACHE  类型指令
                 {alu_op, alu_src, alu_imm_src, mem_type, mem_size, wb_reg_dest, wb_reg_en, unsigned_flag} = 
                     {`ALU_ADDU, `SRC_IMM, `SIGN_EXTENDED, `MEM_CACH, `SZ_BYTE, rt, 1'b0, `ZERO_EXTENDED};
                 priv_inst = 1'b1;
