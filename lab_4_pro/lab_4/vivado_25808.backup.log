@@ -1,0 +1,954 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Tue Jan  4 17:26:32 2022
+# Process ID: 25808
+# Current directory: F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent26264 F:\IDE\Vivado\HardwareDesign\step_into_mips-lab_4\lab_4\lab_4\lab_4.xpr
+# Log file: F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/vivado.log
+# Journal file: F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4\vivado.jou
+# Running On: LAPTOP-OUBT5GAU, OS: Windows, CPU Frequency: 3294 MHz, CPU Physical cores: 16, Host memory: 16542 MB
+#-----------------------------------------------------------
+start_gui
+open_project F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.xpr
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.6 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kc705/1.6/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.6 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.6/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.7 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.7/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu1500:part0:1.2 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu1500/1.2/board.xml as part xcku115-flvb2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.4 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc707/1.4/board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc709:part0:1.8 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc709/1.8/board.xml as part xc7vx690tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:2.2 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/2.2/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_es:part0:1.3 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/es/1.3/board.xml as part xcvc1902-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.6 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu108/1.6/board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.7 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu108/1.7/board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu110:part0:1.4 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu110/1.4/board.xml as part xcvu190-flgc2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.0/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.3 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.3/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.4 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.4/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu128:part0:1.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu128/production/1.0/board.xml as part xcvu37p-fsvh2892-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu129:part0:1.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu129/production/1.0/board.xml as part xcvu29p-fsga2577-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu1525:part0:1.3 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu1525/1.3/board.xml as part xcvu9p-fsgd2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_mpsoc:part0:1.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_mpsoc/1.0/board.xml as part xczu19eg-ffvd1760-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_rfsoc/1.0/board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.2 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_es:part0:1.3 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/es/1.3/board.xml as part xcvm1802-vsva2197-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zc706:part0:1.4 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zc706/1.4/board.xml as part xc7z045ffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.3 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu102/3.3/board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.4 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu102/3.4/board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.2 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.2/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.3 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.3/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.4 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.4/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1275/1.0/board.xml as part xczu29dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1285/1.0/board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/production/2.0/board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.0/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.1 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.1/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208_es:part0:1.2 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/es/1.2/board.xml as part xczu48dr-fsvg1517-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld_es:part0:1.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/es/1.0/board.xml as part xczu58dr-fsvg1517-2-i-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/production/2.0/board.xml as part xczu49dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.0/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.1 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.1/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216_es:part0:1.2 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/es/1.2/board.xml as part xczu49dr-ffvf1760-2-e-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld_es:part0:1.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/es/1.0/board.xml as part xczu59dr-ffvf1760-2-i-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:1.0 available at F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/1.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+CRITICAL WARNING: [Project 1-19] Could not find the file 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/adder.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/eqcmp.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenr.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenrc.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux3.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/signext.v'.
+CRITICAL WARNING: [Project 1-19] Could not find the file 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/sl2.v'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/ip'.
+open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:07 . Memory (MB): peak = 1253.781 ; gain = 0.000
+update_compile_order -fileset sources_1
+close [ open F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/decode/decode_field.sv w ]
+add_files F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/decode/decode_field.sv
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'testbench'
+WARNING: [Vivado 12-12986] Compiled library path does not exist: ''
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'F:/IDE/Vivado/Vivado2021/Vivado/2021.2/tps/boost_1_72_0'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File 'F:/IDE/Vivado/Vivado2021/Vivado/2021.2/data/xsim/xsim.ini' copied to run dir:'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'testbench' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.sim/sim_1/behav/xsim/inst_mem.mif'
+INFO: [SIM-utils-43] Exported 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.sim/sim_1/behav/xsim/mipstest.coe'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj testbench_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/data_mem_1/sim/data_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/inst_mem_1/sim/inst_mem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module inst_mem
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/aludec.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module aludec
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module datapath
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/eqcmp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eqcmp
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenr.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module flopenr
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenrc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module flopenrc
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module flopr
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module floprc
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/hazard.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hazard
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/maindec.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module maindec
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mips
+INFO: [VRFC 10-2458] undeclared symbol branchD, assumed default net type wire [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v:42]
+INFO: [VRFC 10-2458] undeclared symbol jumpD, assumed default net type wire [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v:42]
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux2
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux3.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux3
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/pc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pc
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/regfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/signext.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module signext
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/sl2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sl2
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/decode/decode_field.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module decode_field
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/sim/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [VRFC 10-2263] Analyzing Verilog file "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '3' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_5 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2021.2
+Copyright 1986-1999, 2001-2021 Xilinx, Inc. All Rights Reserved.
+Running: F:/IDE/Vivado/Vivado2021/Vivado/2021.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_5 -L uvm -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 3 differs from formal bit length 8 for port 'd' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:74]
+WARNING: [VRFC 10-3091] actual bit length 3 differs from formal bit length 8 for port 'q' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:75]
+WARNING: [VRFC 10-3091] actual bit length 2 differs from formal bit length 8 for port 'd' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:79]
+WARNING: [VRFC 10-3091] actual bit length 2 differs from formal bit length 8 for port 'q' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:80]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.maindec
+Compiling module xil_defaultlib.aludec
+Compiling module xil_defaultlib.floprc
+Compiling module xil_defaultlib.flopr
+Compiling module xil_defaultlib.controller
+Compiling module xil_defaultlib.hazard
+Compiling module xil_defaultlib.mux2(WIDTH=32)
+Compiling module xil_defaultlib.regfile
+Compiling module xil_defaultlib.pc(WIDTH=32)
+Compiling module xil_defaultlib.adder
+Compiling module xil_defaultlib.flopenr(WIDTH=32)
+Compiling module xil_defaultlib.flopenrc(WIDTH=32)
+Compiling module xil_defaultlib.signext
+Compiling module xil_defaultlib.sl2
+Compiling module xil_defaultlib.eqcmp
+Compiling module xil_defaultlib.decode_field
+Compiling module xil_defaultlib.floprc(WIDTH=32)
+Compiling module xil_defaultlib.floprc(WIDTH=5)
+Compiling module xil_defaultlib.mux3(WIDTH=32)
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.mux2(WIDTH=5)
+Compiling module xil_defaultlib.flopr(WIDTH=32)
+Compiling module xil_defaultlib.flopr(WIDTH=5)
+Compiling module xil_defaultlib.datapath
+Compiling module xil_defaultlib.mips
+Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5_output_stage(...
+Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5(C_FAMILY="art...
+Compiling module xil_defaultlib.inst_mem
+Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_5.blk_mem_gen_v8_4_5(C_FAMILY="art...
+Compiling module xil_defaultlib.data_mem
+Compiling module xil_defaultlib.top
+Compiling module xil_defaultlib.testbench
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot testbench_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 1253.781 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '5' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "testbench_behav -key {Behavioral:sim_1:Functional:testbench} -tclbatch {testbench.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source testbench.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module testbench.dut.imem.inst.\native_mem_mapped_module.blk_mem_gen_v8_4_5_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module testbench.dut.dmem.inst.\native_mem_mapped_module.blk_mem_gen_v8_4_5_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Simulation succeeded
+$stop called at time : 630 ns : File "F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/sim/testbench.v" Line 52
+xsim: Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1253.781 ; gain = 0.000
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'testbench_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:19 . Memory (MB): peak = 1253.781 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7a100tfgg484-1
+Top: top
+INFO: [Device 21-403] Loading part xc7a100tfgg484-1
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1853.605 ; gain = 338.992
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/top.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mips' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v:23]
+INFO: [Synth 8-6157] synthesizing module 'controller' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'maindec' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/maindec.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'maindec' (1#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/maindec.v:23]
+INFO: [Synth 8-6157] synthesizing module 'aludec' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/aludec.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'aludec' (2#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/aludec.v:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc' (3#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr' (4#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+WARNING: [Synth 8-689] width (3) of port connection 'q' does not match port width (8) of module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:75]
+WARNING: [Synth 8-689] width (2) of port connection 'q' does not match port width (8) of module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:80]
+WARNING: [Synth 8-3848] Net equalD in module/entity controller does not have driver. [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'controller' (5#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'datapath' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:23]
+INFO: [Synth 8-6157] synthesizing module 'hazard' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/hazard.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'hazard' (6#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/hazard.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux2' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2' (7#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/regfile.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (8#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/regfile.v:23]
+INFO: [Synth 8-6157] synthesizing module 'pc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/pc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pc' (9#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/pc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'adder' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/adder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'adder' (10#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/adder.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenr.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenr' (11#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenr.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenrc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc' (12#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenrc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'signext' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/signext.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'signext' (13#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/signext.v:23]
+INFO: [Synth 8-6157] synthesizing module 'sl2' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/sl2.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'sl2' (14#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/sl2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'eqcmp' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/eqcmp.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'eqcmp' (15#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/eqcmp.v:23]
+INFO: [Synth 8-6157] synthesizing module 'decode_field' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/decode/decode_field.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'decode_field' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/decode/decode_field.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized0' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized1' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized1' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux3' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux3.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux3' (17#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux3.v:23]
+INFO: [Synth 8-6157] synthesizing module 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:23]
+INFO: [Synth 8-226] default block is never used [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:35]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:23]
+WARNING: [Synth 8-7071] port 'overflow' of module 'alu' is unconnected for instance 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+WARNING: [Synth 8-7071] port 'zero' of module 'alu' is unconnected for instance 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+WARNING: [Synth 8-7023] instance 'alu' of module 'alu' has 6 connections declared, but only 4 given [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+INFO: [Synth 8-6157] synthesizing module 'mux2__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2__parameterized0' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr__parameterized0' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr__parameterized1' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr__parameterized1' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+WARNING: [Synth 8-3848] Net flushD in module/entity datapath does not have driver. [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'datapath' (19#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'mips' (20#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v:23]
+INFO: [Synth 8-6157] synthesizing module 'inst_mem' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/inst_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'inst_mem' (21#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/inst_mem_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'data_mem' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/data_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'data_mem' (22#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/data_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top' (23#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/top.v:23]
+WARNING: [Synth 8-7129] Port instruction[10] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[9] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[8] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[7] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[6] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[31] in module sl2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[30] in module sl2 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1916.535 ; gain = 401.922
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1916.535 ; gain = 401.922
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1916.535 ; gain = 401.922
+---------------------------------------------------------------------------------
+INFO: [Project 1-454] Reading design checkpoint 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/inst_mem_1/inst_mem.dcp' for cell 'imem'
+INFO: [Project 1-454] Reading design checkpoint 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/data_mem_1/data_mem.dcp' for cell 'dmem'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.028 . Memory (MB): peak = 1918.113 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2021.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2012.000 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:15 ; elapsed = 00:00:09 . Memory (MB): peak = 2131.434 ; gain = 616.820
+65 Infos, 14 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:13 . Memory (MB): peak = 2131.434 ; gain = 877.652
+show_objects -name branchD [get_cells -hierarchical -filter { PRIMITIVE_TYPE =~ BMEM.*.* } ]
+close [ open F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/register.v w ]
+add_files F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/register.v
+update_compile_order -fileset sources_1
+refresh_design
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2191.234 ; gain = 36.645
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/top.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mips' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v:23]
+INFO: [Synth 8-6157] synthesizing module 'controller' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'maindec' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/maindec.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'maindec' (1#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/maindec.v:23]
+INFO: [Synth 8-6157] synthesizing module 'aludec' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/aludec.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'aludec' (2#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/aludec.v:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc' (3#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr' (4#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+WARNING: [Synth 8-689] width (3) of port connection 'q' does not match port width (8) of module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:75]
+WARNING: [Synth 8-689] width (2) of port connection 'q' does not match port width (8) of module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:80]
+WARNING: [Synth 8-3848] Net equalD in module/entity controller does not have driver. [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'controller' (5#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'datapath' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:23]
+INFO: [Synth 8-6157] synthesizing module 'hazard' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/hazard.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'hazard' (6#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/hazard.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux2' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2' (7#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/regfile.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (8#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/regfile.v:23]
+INFO: [Synth 8-6157] synthesizing module 'pc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/pc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pc' (9#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/pc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'adder' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/adder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'adder' (10#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/adder.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenr.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenr' (11#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenr.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenrc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc' (12#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenrc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'signext' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/signext.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'signext' (13#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/signext.v:23]
+INFO: [Synth 8-6157] synthesizing module 'sl2' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/sl2.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'sl2' (14#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/sl2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'eqcmp' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/eqcmp.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'eqcmp' (15#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/eqcmp.v:23]
+ERROR: [Synth 8-439] module 'decode_field' not found [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:127]
+ERROR: [Synth 8-6156] failed synthesizing module 'datapath' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:23]
+ERROR: [Synth 8-6156] failed synthesizing module 'mips' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v:23]
+ERROR: [Synth 8-6156] failed synthesizing module 'top' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/top.v:23]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2227.125 ; gain = 72.535
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+refresh_design: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 2227.125 ; gain = 72.535
+ERROR: [Common 17-39] 'refresh_design' failed due to earlier errors.
+add_files -norecurse F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/decode_field.sv
+update_compile_order -fileset sources_1
+refresh_design
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2252.992 ; gain = 18.863
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/top.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mips' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v:23]
+INFO: [Synth 8-6157] synthesizing module 'controller' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'maindec' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/maindec.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'maindec' (1#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/maindec.v:23]
+INFO: [Synth 8-6157] synthesizing module 'aludec' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/aludec.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'aludec' (2#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/aludec.v:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc' (3#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr' (4#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+WARNING: [Synth 8-689] width (3) of port connection 'q' does not match port width (8) of module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:75]
+WARNING: [Synth 8-689] width (2) of port connection 'q' does not match port width (8) of module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:80]
+WARNING: [Synth 8-3848] Net equalD in module/entity controller does not have driver. [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'controller' (5#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'datapath' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:23]
+INFO: [Synth 8-6157] synthesizing module 'hazard' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/hazard.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'hazard' (6#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/hazard.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux2' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2' (7#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/regfile.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (8#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/regfile.v:23]
+INFO: [Synth 8-6157] synthesizing module 'pc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/pc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pc' (9#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/pc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'adder' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/adder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'adder' (10#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/adder.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenr.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenr' (11#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenr.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenrc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc' (12#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenrc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'signext' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/signext.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'signext' (13#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/signext.v:23]
+INFO: [Synth 8-6157] synthesizing module 'sl2' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/sl2.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'sl2' (14#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/sl2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'eqcmp' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/eqcmp.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'eqcmp' (15#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/eqcmp.v:23]
+INFO: [Synth 8-6157] synthesizing module 'decode_field' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/decode_field.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'decode_field' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/decode_field.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized0' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized1' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized1' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux3' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux3.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux3' (17#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux3.v:23]
+INFO: [Synth 8-6157] synthesizing module 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:23]
+INFO: [Synth 8-226] default block is never used [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:35]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:23]
+WARNING: [Synth 8-7071] port 'overflow' of module 'alu' is unconnected for instance 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+WARNING: [Synth 8-7071] port 'zero' of module 'alu' is unconnected for instance 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+WARNING: [Synth 8-7023] instance 'alu' of module 'alu' has 6 connections declared, but only 4 given [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+INFO: [Synth 8-6157] synthesizing module 'mux2__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2__parameterized0' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr__parameterized0' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr__parameterized1' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr__parameterized1' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+WARNING: [Synth 8-3848] Net flushD in module/entity datapath does not have driver. [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'datapath' (19#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'mips' (20#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v:23]
+INFO: [Synth 8-6157] synthesizing module 'inst_mem' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/inst_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'inst_mem' (21#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/inst_mem_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'data_mem' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/data_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'data_mem' (22#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/data_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top' (23#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/top.v:23]
+WARNING: [Synth 8-7129] Port instruction[10] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[9] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[8] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[7] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[6] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[31] in module sl2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[30] in module sl2 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2253.004 ; gain = 18.875
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2260.102 ; gain = 25.973
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2260.102 ; gain = 25.973
+---------------------------------------------------------------------------------
+INFO: [Project 1-454] Reading design checkpoint 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/inst_mem_1/inst_mem.dcp' for cell 'imem'
+INFO: [Project 1-454] Reading design checkpoint 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/data_mem_1/data_mem.dcp' for cell 'dmem'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 2280.504 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2021.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+refresh_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 2280.504 ; gain = 48.531
+add_files -norecurse F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/register.sv
+refresh_design
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2280.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/top.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mips' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v:23]
+INFO: [Synth 8-6157] synthesizing module 'controller' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'maindec' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/maindec.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'maindec' (1#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/maindec.v:23]
+INFO: [Synth 8-6157] synthesizing module 'aludec' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/aludec.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'aludec' (2#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/aludec.v:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc' (3#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr' (4#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+WARNING: [Synth 8-689] width (3) of port connection 'q' does not match port width (8) of module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:75]
+WARNING: [Synth 8-689] width (2) of port connection 'q' does not match port width (8) of module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:80]
+WARNING: [Synth 8-3848] Net equalD in module/entity controller does not have driver. [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'controller' (5#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'datapath' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:23]
+INFO: [Synth 8-6157] synthesizing module 'hazard' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/hazard.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'hazard' (6#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/hazard.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux2' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2' (7#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/regfile.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (8#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/regfile.v:23]
+INFO: [Synth 8-6157] synthesizing module 'pc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/pc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pc' (9#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/pc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'adder' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/adder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'adder' (10#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/adder.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenr.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenr' (11#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenr.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenrc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc' (12#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenrc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'signext' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/signext.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'signext' (13#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/signext.v:23]
+INFO: [Synth 8-6157] synthesizing module 'sl2' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/sl2.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'sl2' (14#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/sl2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'eqcmp' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/eqcmp.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'eqcmp' (15#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/eqcmp.v:23]
+INFO: [Synth 8-6157] synthesizing module 'decode_field' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/decode_field.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'decode_field' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/decode_field.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized0' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized1' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized1' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux3' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux3.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux3' (17#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux3.v:23]
+INFO: [Synth 8-6157] synthesizing module 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:23]
+INFO: [Synth 8-226] default block is never used [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:35]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:23]
+WARNING: [Synth 8-7071] port 'overflow' of module 'alu' is unconnected for instance 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+WARNING: [Synth 8-7071] port 'zero' of module 'alu' is unconnected for instance 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+WARNING: [Synth 8-7023] instance 'alu' of module 'alu' has 6 connections declared, but only 4 given [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+INFO: [Synth 8-6157] synthesizing module 'mux2__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2__parameterized0' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr__parameterized0' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr__parameterized1' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr__parameterized1' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+WARNING: [Synth 8-3848] Net flushD in module/entity datapath does not have driver. [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'datapath' (19#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'mips' (20#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v:23]
+INFO: [Synth 8-6157] synthesizing module 'inst_mem' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/inst_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'inst_mem' (21#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/inst_mem_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'data_mem' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/data_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'data_mem' (22#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/data_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top' (23#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/top.v:23]
+WARNING: [Synth 8-7129] Port instruction[10] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[9] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[8] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[7] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[6] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[31] in module sl2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[30] in module sl2 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2280.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2280.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2280.504 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Project 1-454] Reading design checkpoint 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/inst_mem_1/inst_mem.dcp' for cell 'imem'
+INFO: [Project 1-454] Reading design checkpoint 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/data_mem_1/data_mem.dcp' for cell 'dmem'
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.028 . Memory (MB): peak = 2294.926 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2021.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+refresh_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 2294.926 ; gain = 14.422
+update_compile_order -fileset sources_1
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name inst_mem_dual
+set_property -dict [list CONFIG.Component_Name {inst_mem_dual} CONFIG.Memory_Type {Dual_Port_ROM} CONFIG.Enable_32bit_Address {true} CONFIG.Use_Byte_Write_Enable {false} CONFIG.Byte_Size {8} CONFIG.Write_Width_A {32} CONFIG.Read_Width_A {32} CONFIG.Write_Width_B {32} CONFIG.Read_Width_B {32} CONFIG.Enable_B {Use_ENB_Pin} CONFIG.Register_PortA_Output_of_Memory_Primitives {false} CONFIG.Register_PortB_Output_of_Memory_Primitives {false} CONFIG.Use_RSTA_Pin {false} CONFIG.Use_RSTB_Pin {false} CONFIG.Port_A_Write_Rate {0} CONFIG.Port_B_Clock {100} CONFIG.Port_B_Enable_Rate {100} CONFIG.EN_SAFETY_CKT {false}] [get_ips inst_mem_dual]
+WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'inst_mem_dual' to 'inst_mem_dual' is not allowed and is ignored.
+generate_target {instantiation_template} [get_files f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/inst_mem_dual/inst_mem_dual.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'inst_mem_dual'...
+generate_target all [get_files  f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/inst_mem_dual/inst_mem_dual.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'inst_mem_dual'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'inst_mem_dual'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'inst_mem_dual'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'inst_mem_dual'...
+catch { config_ip_cache -export [get_ips -all inst_mem_dual] }
+export_ip_user_files -of_objects [get_files f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/inst_mem_dual/inst_mem_dual.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/inst_mem_dual/inst_mem_dual.xci]
+launch_runs inst_mem_dual_synth_1 -jobs 8
+[Tue Jan  4 20:41:12 2022] Launched inst_mem_dual_synth_1...
+Run output will be captured here: F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.runs/inst_mem_dual_synth_1/runme.log
+export_simulation -of_objects [get_files f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/inst_mem_dual/inst_mem_dual.xci] -directory F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.ip_user_files/sim_scripts -ip_user_files_dir F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.ip_user_files -ipstatic_source_dir F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.ip_user_files/ipstatic -lib_map_path [list {modelsim=F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.cache/compile_simlib/modelsim} {questa=F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.cache/compile_simlib/questa} {riviera=F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.cache/compile_simlib/riviera} {activehdl=F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+INFO: [IP_Flow 19-3484] Absolute path of file 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/coe/mipstest.coe' provided. It will be converted relative to IP Instance files '../../../../../coe/mipstest.coe'
+INFO: [IP_Flow 19-3484] Absolute path of file 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/coe/mipstest.coe' provided. It will be converted relative to IP Instance files '../../../../../coe/mipstest.coe'
+INFO: [IP_Flow 19-3484] Absolute path of file 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/coe/mipstest.coe' provided. It will be converted relative to IP Instance files '../../../../../coe/mipstest.coe'
+INFO: [IP_Flow 19-3484] Absolute path of file 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/coe/mipstest.coe' provided. It will be converted relative to IP Instance files '../../../../../coe/mipstest.coe'
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+INFO: [IP_Flow 19-3484] Absolute path of file 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/coe/mipstest.coe' provided. It will be converted relative to IP Instance files '../../../../../coe/mipstest.coe'
+INFO: [IP_Flow 19-3484] Absolute path of file 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/coe/mipstest.coe' provided. It will be converted relative to IP Instance files '../../../../../coe/mipstest.coe'
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+INFO: [IP_Flow 19-3484] Absolute path of file 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/coe/mipstest.coe' provided. It will be converted relative to IP Instance files '../../../../../coe/mipstest.coe'
+set_property -dict [list CONFIG.Write_Depth_A {128} CONFIG.Load_Init_File {true} CONFIG.Coe_File {F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/coe/mipstest.coe}] [get_ips inst_mem_dual]
+INFO: [IP_Flow 19-3484] Absolute path of file 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/coe/mipstest.coe' provided. It will be converted relative to IP Instance files '../../../../../coe/mipstest.coe'
+generate_target all [get_files  f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/inst_mem_dual/inst_mem_dual.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'inst_mem_dual'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'inst_mem_dual'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'inst_mem_dual'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'inst_mem_dual'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'inst_mem_dual'...
+catch { config_ip_cache -export [get_ips -all inst_mem_dual] }
+export_ip_user_files -of_objects [get_files f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/inst_mem_dual/inst_mem_dual.xci] -no_script -sync -force -quiet
+reset_run inst_mem_dual_synth_1
+launch_runs inst_mem_dual_synth_1 -jobs 8
+[Tue Jan  4 20:49:40 2022] Launched inst_mem_dual_synth_1...
+Run output will be captured here: F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.runs/inst_mem_dual_synth_1/runme.log
+export_simulation -of_objects [get_files f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/inst_mem_dual/inst_mem_dual.xci] -directory F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.ip_user_files/sim_scripts -ip_user_files_dir F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.ip_user_files -ipstatic_source_dir F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.ip_user_files/ipstatic -lib_map_path [list {modelsim=F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.cache/compile_simlib/modelsim} {questa=F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.cache/compile_simlib/questa} {riviera=F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.cache/compile_simlib/riviera} {activehdl=F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+refresh_design
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2317.254 ; gain = 12.660
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/top.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mips' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v:23]
+INFO: [Synth 8-6157] synthesizing module 'controller' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'maindec' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/maindec.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'maindec' (1#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/maindec.v:23]
+INFO: [Synth 8-6157] synthesizing module 'aludec' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/aludec.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'aludec' (2#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/aludec.v:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc' (3#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr' (4#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+WARNING: [Synth 8-689] width (3) of port connection 'q' does not match port width (8) of module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:75]
+WARNING: [Synth 8-689] width (2) of port connection 'q' does not match port width (8) of module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:80]
+WARNING: [Synth 8-3848] Net equalD in module/entity controller does not have driver. [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'controller' (5#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'datapath' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:23]
+INFO: [Synth 8-6157] synthesizing module 'hazard' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/hazard.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'hazard' (6#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/hazard.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux2' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2' (7#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/regfile.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (8#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/regfile.v:23]
+INFO: [Synth 8-6157] synthesizing module 'pc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/pc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pc' (9#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/pc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'adder' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/adder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'adder' (10#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/adder.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenr.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenr' (11#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenr.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenrc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc' (12#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenrc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'signext' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/signext.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'signext' (13#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/signext.v:23]
+INFO: [Synth 8-6157] synthesizing module 'sl2' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/sl2.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'sl2' (14#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/sl2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'eqcmp' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/eqcmp.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'eqcmp' (15#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/eqcmp.v:23]
+INFO: [Synth 8-6157] synthesizing module 'decode_field' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/decode_field.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'decode_field' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/decode_field.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized0' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized1' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized1' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux3' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux3.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux3' (17#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux3.v:23]
+INFO: [Synth 8-6157] synthesizing module 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:23]
+INFO: [Synth 8-226] default block is never used [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:35]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:23]
+WARNING: [Synth 8-7071] port 'overflow' of module 'alu' is unconnected for instance 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+WARNING: [Synth 8-7071] port 'zero' of module 'alu' is unconnected for instance 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+WARNING: [Synth 8-7023] instance 'alu' of module 'alu' has 6 connections declared, but only 4 given [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+INFO: [Synth 8-6157] synthesizing module 'mux2__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2__parameterized0' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr__parameterized0' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr__parameterized1' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr__parameterized1' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+WARNING: [Synth 8-3848] Net flushD in module/entity datapath does not have driver. [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'datapath' (19#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'mips' (20#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v:23]
+INFO: [Synth 8-6157] synthesizing module 'inst_mem' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/inst_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'inst_mem' (21#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/inst_mem_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'data_mem' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/data_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'data_mem' (22#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/data_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top' (23#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/top.v:23]
+WARNING: [Synth 8-7129] Port instruction[10] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[9] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[8] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[7] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[6] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[31] in module sl2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[30] in module sl2 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2340.672 ; gain = 36.078
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2364.535 ; gain = 59.941
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2364.535 ; gain = 59.941
+---------------------------------------------------------------------------------
+INFO: [Project 1-454] Reading design checkpoint 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/inst_mem_1/inst_mem.dcp' for cell 'imem'
+INFO: [Project 1-454] Reading design checkpoint 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/data_mem_1/data_mem.dcp' for cell 'dmem'
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 2433.695 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2021.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+refresh_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 2433.695 ; gain = 129.102
+add_files -norecurse F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/register.sv
+WARNING: [filemgmt 56-12] File 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/register.sv' cannot be added to the project because it already exists in the project, skipping this file
+export_ip_user_files -of_objects  [get_files F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/register.v] -no_script -reset -force -quiet
+remove_files  F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/register.v
+add_files -norecurse F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/decode_field.sv
+WARNING: [filemgmt 56-12] File 'F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/decode_field.sv' cannot be added to the project because it already exists in the project, skipping this file
+export_ip_user_files -of_objects  [get_files F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/decode/decode_field.sv] -no_script -reset -force -quiet
+remove_files  F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/decode/decode_field.sv
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/tb_inst_mem_dual.v w ]
+add_files -fileset sim_1 F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/tb_inst_mem_dual.v
+update_compile_order -fileset sim_1
+close [ open F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/fake_top.v w ]
+add_files F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/fake_top.v
+update_compile_order -fileset sources_1
+refresh_design
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2433.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/top.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mips' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v:23]
+INFO: [Synth 8-6157] synthesizing module 'controller' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'maindec' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/maindec.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'maindec' (1#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/maindec.v:23]
+INFO: [Synth 8-6157] synthesizing module 'aludec' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/aludec.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'aludec' (2#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/aludec.v:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc' (3#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr' (4#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+WARNING: [Synth 8-689] width (3) of port connection 'q' does not match port width (8) of module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:75]
+WARNING: [Synth 8-689] width (2) of port connection 'q' does not match port width (8) of module 'flopr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:80]
+WARNING: [Synth 8-3848] Net equalD in module/entity controller does not have driver. [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:27]
+INFO: [Synth 8-6155] done synthesizing module 'controller' (5#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'datapath' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:23]
+INFO: [Synth 8-6157] synthesizing module 'hazard' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/hazard.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'hazard' (6#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/hazard.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux2' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2' (7#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/regfile.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (8#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/regfile.v:23]
+INFO: [Synth 8-6157] synthesizing module 'pc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/pc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pc' (9#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/pc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'adder' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/adder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'adder' (10#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/adder.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenr' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenr.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenr' (11#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenr.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenrc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc' (12#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopenrc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'signext' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/signext.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'signext' (13#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/signext.v:23]
+INFO: [Synth 8-6157] synthesizing module 'sl2' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/sl2.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'sl2' (14#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/sl2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'eqcmp' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/eqcmp.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'eqcmp' (15#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/eqcmp.v:23]
+INFO: [Synth 8-6157] synthesizing module 'decode_field' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/decode_field.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'decode_field' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/dual/decode_field.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized0' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized1' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized1' (16#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux3' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux3.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux3' (17#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux3.v:23]
+INFO: [Synth 8-6157] synthesizing module 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:23]
+INFO: [Synth 8-226] default block is never used [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:35]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/alu.v:23]
+WARNING: [Synth 8-7071] port 'overflow' of module 'alu' is unconnected for instance 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+WARNING: [Synth 8-7071] port 'zero' of module 'alu' is unconnected for instance 'alu' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+WARNING: [Synth 8-7023] instance 'alu' of module 'alu' has 6 connections declared, but only 4 given [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:140]
+INFO: [Synth 8-6157] synthesizing module 'mux2__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux2__parameterized0' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mux2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr__parameterized0' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr__parameterized0' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopr__parameterized1' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+	Parameter WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopr__parameterized1' (18#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/flopr.v:23]
+WARNING: [Synth 8-3848] Net flushD in module/entity datapath does not have driver. [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'datapath' (19#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/datapath.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'mips' (20#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/mips.v:23]
+INFO: [Synth 8-6157] synthesizing module 'inst_mem' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/inst_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'inst_mem' (21#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/inst_mem_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'data_mem' [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/data_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'data_mem' (22#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/.Xil/Vivado-25808-LAPTOP-OUBT5GAU/realtime/data_mem_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'top' (23#1) [F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/rtl/top.v:23]
+WARNING: [Synth 8-7129] Port instruction[10] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[9] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[8] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[7] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port instruction[6] in module decode_field is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[31] in module sl2 is either unconnected or has no load
+WARNING: [Synth 8-7129] Port a[30] in module sl2 is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2433.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2433.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2433.695 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Project 1-454] Reading design checkpoint 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/inst_mem_1/inst_mem.dcp' for cell 'imem'
+INFO: [Project 1-454] Reading design checkpoint 'f:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/lab_4.srcs/sources_1/ip/data_mem_1/data_mem.dcp' for cell 'dmem'
+ERROR: [Vivado 12-106] *** Exception: java.lang.NullPointerException (See F:/IDE/Vivado/HardwareDesign/step_into_mips-lab_4/lab_4/lab_4/vivado_pid25808.debug)
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 2449.270 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2021.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
