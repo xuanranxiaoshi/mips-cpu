@@ -1,2 +1,0 @@
-inst_mem_dual.v,verilog,xil_defaultlib,../../../../lab_4.srcs/sources_1/ip/inst_mem_dual/sim/inst_mem_dual.v,
-glbl.v,Verilog,xil_defaultlib,glbl.v
