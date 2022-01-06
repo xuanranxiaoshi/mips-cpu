@@ -35,12 +35,14 @@ module decode_field(
     assign rt = instruction[20:16];
     assign rd = instruction[15:11];
     assign funct = instruction[5:0];
+
     // 判断是否为访存指令
     always_comb begin : mem_op_kind
         case (opcode[5:3])
-            6'b100: mem_op_type = `MEM_LOAD;
-            6'b101: mem_op_type = `MEM_STOR;
-            default: mem_op_type = `MEM_NOT;
+            6'b100:     mem_op_type = `MEM_LOAD;
+            6'b101:     mem_op_type = `MEM_STOR;
+            default:    mem_op_type = `MEM_NOT;
         endcase
     end
+
 endmodule

@@ -42,8 +42,6 @@ module pc_ctrl #(parameter WIDTH = 32)(
 	reg   	[31:0] pc_address_next;                     //下一条指令pc值
     reg     [31:0] pc_address_one;
     reg     [31:0] pc_address_two;
-    reg     inst_ok_one_pre;
-    reg     inst_ok_two_pre;
 
     assign pc_address_1 = pc_address_one;
     assign pc_address_2 = pc_address_two;
@@ -51,28 +49,21 @@ module pc_ctrl #(parameter WIDTH = 32)(
 	//确定pcnext
     always @(*) begin
         if(rst) begin
-            pc_address_next <= 32'h0000_0000;            //Initial valud
+            pc_address_next <= 32'h0000_0000;                   //Initial valud
             pc_address_one <= 32'h0000_0000;
             pc_address_two <= 32'h0000_0000;
-            inst_ok_one_pre <= 1;
-            inst_ok_two_pre <= 1;
         end
         else if(branch_taken)                       		    //分支跳转，则分支地址
                 pc_address_next <= branch_address;
         else if(en) begin
             flushD_dual <= 0;
             flushD_dual_slave <= 0;
-            if(inst_ok_1 && inst_ok_2) begin       //发射了两条指令，pc+8
+            if(inst_ok_1 && inst_ok_2) begin                    //发射了两条指令，pc+8
                 pc_address_next <= pc_address_one + 32'd8;
             end             
-            else if(inst_ok_1)                          //发射了一条指令，pc+4
-                if(inst_ok_one_pre && inst_ok_two_pre)  begin
-                    pc_address_next <= pc_address_one - 32'd4;  //前一级
+            else if(inst_ok_1) begin                            //检测到只能发射一条指令时(ID阶段)下一条指令的PC地址应该是上一个IF阶段的slave的指令pc
+                    pc_address_next <= pc_address_one - 32'd4; 
                     flushD_dual <= 1;
-                    flushD_dual_slave <= 1;
-                end
-                else if(inst_ok_one_pre) begin
-                    pc_address_next <= pc_address_two;
                     flushD_dual_slave <= 1;
                 end
             else begin
@@ -89,8 +80,6 @@ module pc_ctrl #(parameter WIDTH = 32)(
 
 	// 更新pc
     always @(posedge clk) begin
-        inst_ok_one_pre <= inst_ok_1;
-        inst_ok_two_pre <= inst_ok_2;
         pc_address_one <= pc_address_next;
         pc_address_two <= pc_address_next + 32'd4;
     end
