@@ -24,7 +24,8 @@ module controller(
 	input wire clk,rst,
 	//decode stage
 	input 	wire[5:0] 	opD,functD,
-	output 	wire 		pcsrcD,branchD,equalD,jumpD,regdstD,
+	input	wire 		equalD,
+	output 	wire 		pcsrcD,branchD,jumpD,regdstD,
 	output 	wire 		regwriteD,
 	
 	//execute stage
