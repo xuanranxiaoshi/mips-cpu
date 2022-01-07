@@ -26,5 +26,4 @@ module eqcmp(
     );
 
 	assign y = (a == b) ? 1 : 0;
-	
 endmodule

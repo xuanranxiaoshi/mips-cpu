@@ -12,27 +12,33 @@
 // Description: 
 // 
 // Dependencies: 
-//	数据冒险检测单元：
-//	1. 检测ID阶段分支判断的数据冒险，能MEM阶段的数据进行前推；EXE阶段进行stall
-//	2. 检测EX阶段的数据冒险，将EXE阶段和MEM阶段的数据进行前推
+// 
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+/******************************* 功能说明 *******************************
+数据冒险检测单元：
+1. 检测ID阶段分支判断的数据冒险，能MEM阶段的数据进行前推；EXE阶段进行stall
+2. 检测EX阶段的数据冒险，将EXE阶段和MEM阶段的数据进行前推
+
+TODO:
+	考虑master和slave之间的数据前推
+************************************************************************/
 
 module hazard(
 	//fetch stage
-	output 	wire 					stallF,  				//master
-	output 	wire 					stallF_slave, 			//slave
+	output 	wire 					stallF,  //master
+	output 	wire 					stallF_slave, //slave
 	//decode stage
 	//master
 	input 	wire[4:0] 				rsD,
 	input 	wire[4:0] 				rtD,
 	input 	wire 					branchD,
-	output 	reg	[1:0] 				forwardaD,
-	output 	reg	[1:0] 				forwardbD,				//考虑来自slave的数据则需要2位来选择4个数据
+	output 	reg[1:0] 				forwardaD,
+	output 	reg[1:0] 				forwardbD,				//考虑来自slave的数据则需要2位来选择4个数据
 	output 	wire 					stallD,
 	output 	wire 					stallD_slave,
 	//slave 不发射分支指令, 不需要在ID阶段前推
@@ -57,6 +63,8 @@ module hazard(
 	input 	wire 					regwriteE_slave,
 	input 	wire 					memtoregE_slave,
 
+	
+
 	//mem stage
 	//master
 	input 	wire[4:0] 				writeregM,
@@ -76,6 +84,10 @@ module hazard(
 
 	wire lwstallD,branchstallD,branchstallD_slave;
 	wire lwstallD_slave;
+
+	//forwarding sources to D stage (branch equality)
+	// assign forwardaD = (rsD != 0 & rsD == writeregM & regwriteM);
+	// assign forwardbD = (rtD != 0 & rtD == writeregM & regwriteM);
 
 	// fowarding to Deocde branch
 	always_comb begin : branchD_a
@@ -116,8 +128,8 @@ module hazard(
 
 	//slave stall
 	assign  stallD_slave = lwstallD_slave | stallD;
-	assign  stallF_slave = stallD_slave   | stallD;
-	assign  flushE_slave = stallD_slave   | flushE ;
+	assign  stallF_slave = stallD_slave | stallD;
+	assign  flushE_slave = stallD_slave | flushE ;
 
 	assign  flushD = branch_taken;
 	assign  flushD_slave = branch_taken;

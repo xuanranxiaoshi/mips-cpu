@@ -26,7 +26,7 @@ module mux3 #(parameter WIDTH = 8)(
 	output wire[WIDTH-1:0] y
     );
 
-	assign y = 	(s == 2'b00) ? d0 :
+	assign y = (s == 2'b00) ? d0 :
 				(s == 2'b01) ? d1:
 				(s == 2'b10) ? d2: d0;
 endmodule

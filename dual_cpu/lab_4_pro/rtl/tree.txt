@@ -1,0 +1,41 @@
+rtl:
+│  .DS_Store
+│  adder.v # 加法器
+│  alu.v # ALU
+│  aludec.v # ALU控制信号生成
+│  common.vh # 宏定义文件
+│  controller.v # 控制器
+│  datapath.v # 数据通路
+│  decode_field.sv # 指令分段
+│  dual_engine.v # 控制双发射
+│  eqcmp.v # 判断两个数是否相等
+│  fake_top.v # 验证双端口ROM的伪top
+│  flopenr.v # 带有enable、reset的触发器
+│  flopenrc.v # 带有 enable、reset 与 clear 的触发器
+│  flopr.v # 带有 reset 的触发器
+│  floprc.v #  带有 reset 与 clear 的触发器
+│  forwarding.sv # 旁路单元
+│  hazard.sv # 阻塞单元
+│  maindec.v # 主译码器
+│  mips.v # CPU顶层文件
+│  mipstest.coe # 测试指令集
+│  mux2.v # 二选一多路选择器
+│  mux3.v # 三选一多路选择器
+│  pc.v # PC
+│  pc_ctrl.sv # 选择下一条发射指令
+│  regfile.v # 老版的寄存器堆，两个读端口，一个写端口
+│  register.sv # 新版的寄存器堆，四个读端口，两个写端口
+│  signext.v # 有符号扩展
+│  sl2.v # 左移两位
+│  tb_inst_mem_dual.v # 双端口测试文件
+│  testbench.v # 测试文件
+│  top.v # 最顶层模块
+│  tree.txt # 文件树
+│    
+└─ip
+    ├─data_mem
+    │      data_mem.xci # 数据存储器IP
+    │      
+    └─inst_mem
+            inst_mem.xci # 指令存储器IP
+            

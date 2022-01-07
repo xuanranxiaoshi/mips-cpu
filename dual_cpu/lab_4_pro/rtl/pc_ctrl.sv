@@ -50,11 +50,9 @@ module pc_ctrl #(parameter WIDTH = 32)(
     always @(*) begin
         if(rst) begin
             pc_address_next <= 32'h0000_0000;                   //Initial valud
-            pc_address_one <= 32'h0000_0000;
-            pc_address_two <= 32'h0000_0000;
         end
         else if(branch_taken)                       		    //分支跳转，则分支地址
-                pc_address_next <= branch_address;
+            pc_address_next <= branch_address;
         else if(en) begin
             flushD_dual <= 0;
             flushD_dual_slave <= 0;
@@ -65,13 +63,7 @@ module pc_ctrl #(parameter WIDTH = 32)(
                     pc_address_next <= pc_address_one - 32'd4; 
                     flushD_dual <= 1;
                     flushD_dual_slave <= 1;
-                end
-            else begin
-                pc_address_next <= pc_address_next;
-                pc_address_one <= pc_address_one;
-                pc_address_two <= pc_address_two;
             end
-                
         end
         else begin
             pc_address_next <= pc_address_next; 
@@ -80,8 +72,18 @@ module pc_ctrl #(parameter WIDTH = 32)(
 
 	// 更新pc
     always @(posedge clk) begin
-        pc_address_one <= pc_address_next;
-        pc_address_two <= pc_address_next + 32'd4;
+        if(rst) begin
+            pc_address_one <= 32'h0000_0000;
+            pc_address_two <= 32'h0000_0000;
+        end
+        else if(~en) begin
+            pc_address_one <= pc_address_one;
+            pc_address_two <= pc_address_two;
+        end
+        else begin
+            pc_address_one <= pc_address_next;
+            pc_address_two <= pc_address_next + 32'd4;
+        end
     end
 
 endmodule

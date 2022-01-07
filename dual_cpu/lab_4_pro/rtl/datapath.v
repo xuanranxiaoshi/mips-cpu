@@ -21,12 +21,12 @@
 
 
 module datapath(
-	input 	wire 		clk,rst,
+	input wire clk,rst,
 	//fetch stage
-	output 	wire[31:0] 	pcF_1,						//需要提取的指令pc, Fixed: 需要添加slave的pc
-	output 	wire[31:0] 	pcF_2,
-	input 	wire[31:0] 	inst_1,
-	input 	wire[31:0] 	inst_2,
+	output wire[31:0] pcF_1,							//需要提取的指令pc, Fixed: 需要添加slave的pc
+	output wire[31:0] pcF_2,
+	input wire[31:0] inst_1,
+	input wire[31:0] inst_2,
 	
 	//decode stage
 	//master
@@ -211,8 +211,8 @@ module datapath(
 		jumpD,pcnextFD);
 
 
-	wire flushD_dual;                            	//刷新master错误提取的指令
-    wire flushD_dual_slave;                       	//刷新slave错误提取的指令
+	wire flushD_dual;                            //刷新master错误提取的指令
+    wire flushD_dual_slave;                       //刷新slave错误提取的指令
 
 	pc_ctrl pc(
 		.clk(clk),
@@ -252,6 +252,7 @@ module datapath(
 	sl2 immsh(signimmD,signimmshD);
 	adder pcadd2(pcplus4D,signimmshD,pcbranchD);
 
+	//TODO: 分支指令前推还原
 	mux3 #(32) forwardamux(aluoutM,aluoutM_slave,srcaD,forwardaD,srca2D);
 	mux3 #(32) forwardbmux(aluoutM,aluoutM_slave,srcbD,forwardbD,srcb2D);
 	eqcmp comp(srca2D,srcb2D,equalD);
@@ -288,7 +289,7 @@ module datapath(
         .opD_slave(opD_slave),             	// slave id阶段的操作码
         .rsD_slave(rsD_slave),
         .rtD_slave(rtD_slave),
-        .memtypeD_slave(mem_op_type_slave),	
+        .memtypeD_slave(mem_op_type_slave),	// TODO: 待生成
         .branchD_slave(branchD_slave),     	// slave id阶段的指令是否是分支指令
 
         .enable_master(~stallD),            // 对应master的stall
@@ -362,15 +363,15 @@ module datapath(
 	);
 
 	forwarding srcbe_master(
-        .regwriteM_slave(regwriteM_slave),            	//slave M阶段的指令是否写寄存器
-        .writeregM_slave(writeregM_slave),            	//slave M阶段的指令写入寄存器目标地址
-        .wdataM_slave(aluoutM_slave),              		//slave M阶段的指令写入寄存器的数据
+        .regwriteM_slave(regwriteM_slave),            		//slave M阶段的指令是否写寄存器
+        .writeregM_slave(writeregM_slave),            		//slave M阶段的指令写入寄存器目标地址
+        .wdataM_slave(aluoutM_slave),              			//slave M阶段的指令写入寄存器的数据
 
         .regwriteM_master(regwriteM),
         .writeregM_master(writeregM),           
         .wdataM_master(aluoutM),
 
-        .regwriteW_slave(regwriteW_slave),            	//slave M阶段的指令是否写入寄存器
+        .regwriteW_slave(regwriteW_slave),            		//slave M阶段的指令是否写入寄存器
         .writeregW_slave(writeregW_slave),            
         .wdataW_slave(resultW_slave),
 
@@ -378,17 +379,18 @@ module datapath(
         .writeregW_master(writeregW),
         .wdataW_master(resultW),
 
-        .reg_addr(rtE),                   				//寄存器读地址
-        .reg_data(srcbE),                   			//寄存器读出来的值
-        .result_data(srcb2E)                 			//前推选择的地址
+        .reg_addr(rtE),                   					//寄存器读地址
+        .reg_data(srcbE),                   				//寄存器读出来的值
+        .result_data(srcb2E)                 				//前推选择的地址
 	);
-	mux2 #(32) srcbmux(srcb2E,signimmE,alusrcE,srcb3E);	//选择立即数选择
+	mux2 #(32) srcbmux(srcb2E,signimmE,alusrcE,srcb3E);		//选择立即数选择
 
 	alu alu_master(srca2E,srcb3E,alucontrolE,aluoutE);
-	// mux2 #(5) wrmux(rtE,rdE,regdstE,writeregE);		//寄存器目标地址选择
+	// mux2 #(5) wrmux(rtE,rdE,regdstE,writeregE);				//寄存器目标地址选择
 
 
 	//slave
+	//TODO: 控制信号待确定
 	floprc #(32) r1E_slave(clk,rst,~enable_slave | flushE_slave,srcaD_slave,srcaE_slave);
 	floprc #(32) r2E_slave(clk,rst,~enable_slave | flushE_slave,srcbD_slave,srcbE_slave);
 
@@ -398,7 +400,9 @@ module datapath(
 	floprc #(5) r6E_slave(clk,rst,~enable_slave | flushE_slave,rdD_slave,rdE_slave);
 	floprc #(5) r7E_slave(clk,rst,~enable_slave | flushE_slave,writeregD_slave,writeregE_slave);
 
-
+	// mux3 #(32) forwardaemux(srcaE,resultW,aluoutM,forwardaE,srca2E);
+	// mux3 #(32) forwardbemux(srcbE,resultW,aluoutM,forwardbE,srcb2E);
+	// mux2 #(32) srcbmux(srcb2E,signimmE,alusrcE,srcb3E);
 	forwarding srcae_slave(
         .regwriteM_slave(regwriteM_slave),            		//slave M阶段的指令是否写寄存器
         .writeregM_slave(writeregM_slave),            		//slave M阶段的指令写入寄存器目标地址
@@ -465,7 +469,7 @@ module datapath(
 	mux2 #(32) resmux(aluoutW,readdataW,memtoregW,resultW);
 
 	//slave
-	flopr #(32) r1W_slave(clk,rst,aluoutM_slave,resultW_slave);							//不会读取内存数据，因此只有一个写入结果
+	flopr #(32) r1W_slave(clk,rst,aluoutM_slave,resultW_slave);				// 不会读取内存数据，因此只有一个写入结果
 	flopr #(5) r3W_slave(clk,rst,writeregM_slave,writeregW_slave);
 
 endmodule

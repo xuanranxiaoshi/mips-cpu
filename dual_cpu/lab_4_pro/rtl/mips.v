@@ -21,37 +21,37 @@
 
 
 module mips(
-	input 	wire 			clk,
-	input 	wire			rst,
+	input wire 				clk,
+	input wire				rst,
 	//master
-	input 	wire[31:0] 		instrF,
-	input 	wire[31:0] 		readdataM,
-	output 	wire 			memwriteM,
-	output 	wire [31:0] 	pcF,								// 接到指令存储器
-	output 	wire[31:0] 		aluoutM,
-	output 	wire[31:0]		writedataM,
-	
+	output wire [31:0] 		pcF,								// 接到指令存储器
+	input wire[31:0] 		instrF,
+	output wire 			memwriteM,
+	output wire[31:0] 		aluoutM,
+	output wire[31:0]		writedataM,
+	input wire[31:0] 		readdataM,
 	//slave
 	output wire[31:0] 		pcF_slave,
 	input wire[31:0] 		instrF_slave
-
+/* 	output wire 			memwriteM_slave */
+/* 	output wire[31:0] 		aluoutM_slave, */
+/* 	output wire[31:0] 		writedataM_slave, */
+/* 	input wire[31:0] 		readdataM_slave */
     );
 	
-	wire 					regdstD,pcsrcD,,alusrcE,memtoregE,memtoregM,memtoregW,regwriteD,
-							regwriteE,regwriteM,regwriteW;
-	wire 					flushE,equalD;
-	wire [2:0] 				alucontrolE;
 	wire [5:0] 				opD;
 	wire [5:0]				functD;
-	
+	wire 					regdstD,alusrcE,pcsrcD,memtoregE,memtoregM,memtoregW,regwriteD,
+							regwriteE,regwriteM,regwriteW;
+	wire [2:0] 				alucontrolE;
+	wire 					flushE,equalD;
 	//slave
+	wire [5:0] 				opD_slave,functD_slave;
 	wire 					regdstD_slave,alusrcE_slave,pcsrcD_slave,memtoregE_slave,memtoregM_slave,memtoregW_slave,
 							regwriteE_slave,regwriteD_slave,regwriteM_slave,regwriteW_slave;
-	wire 					flushE_slave,equalD_slave;
 	wire [2:0] 				alucontrolE_slave;
-	wire [5:0] 				opD_slave,functD_slave;
-	
-	
+	wire 					flushE_slave,equalD_slave;
+
 
 	//TODO: 调用模块改名字
 
@@ -119,7 +119,7 @@ module mips(
 		.clk(clk),
 		.rst(rst),
 		//fetch stage
-		.pcF_1(pcF),
+		.pcF_1(pcF),								//需要提取的指令pc TODO: 只传了一个地址
 		.pcF_2(pcF_slave),
 		.inst_1(instrF),
 		.inst_2(instrF_slave),
@@ -132,7 +132,7 @@ module mips(
 		.regwriteD(regwriteD),
 		.regdstD(regdstD),
 
-		.equalD(equalD),
+		.equalD(equalD),							//output
 		.opD(opD),
 		.functD(functD),
 		
@@ -145,7 +145,7 @@ module mips(
 		.regwriteD_slave(regwriteD_slave),
 		.regdstD_slave(regdstD_slave),
 
-		.equalD_slave(equalD_slave),		
+		.equalD_slave(equalD_slave),				//controller需要			
 		.opD_slave(opD_slave),
 		.functD_slave(functD_slave),
 		
@@ -156,26 +156,26 @@ module mips(
 		.alusrcE(alusrcE),
 		.regwriteE(regwriteE),
 		.alucontrolE(alucontrolE),
-		.flushE(flushE),
+		.flushE(flushE),							//是否刷新
 
 		//slave
 		.memtoregE_slave(memtoregE_slave),
 		.alusrcE_slave(alusrcE_slave),
 		.regwriteE_slave(regwriteE_slave),
 		.alucontrolE_slave(alucontrolE_slave),
-		.flushE_slave(flushE_slave),
+		.flushE_slave(flushE_slave),											//slave不处理分支指令
 
 		//mem stage
 		//master
 		.memtoregM(memtoregM),
 		.regwriteM(regwriteM),
 		.aluoutM(aluoutM),
-		.writedataM(writedataM),						//M阶段的ALU运算结果； 要写入数据存储器的数据
-		.readdataM(readdataM),							//M阶段从存储器读取到数据
+		.writedataM(writedataM),					//M阶段的ALU运算结果； 要写入数据存储器的数据
+		.readdataM(readdataM),						//M阶段从存储器读取到数据
 
 		//slave
 		.memtoregM_slave(memtoregM_slave),
-		.regwriteM_slave(regwriteM_slave),				//slave不访问内存
+		.regwriteM_slave(regwriteM_slave),			//slave不访问内存
 
 
 		//writeback stage
